@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartBill | Electricity Bill Prediction</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .home-hero {
+            min-height: 570px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 70px 8%;
+            background: linear-gradient(120deg, #073b75, #147bd1);
+            color: white;
+        }
+
+        .home-content {
+            max-width: 620px;
+        }
+
+        .home-content .tagline {
+            color: #b9dcff;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .home-content h1 {
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.15;
+            margin: 20px 0;
+        }
+
+        .home-content p {
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .home-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 14px 25px;
+            background: white;
+            color: #07549a;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .home-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .energy-illustration {
+            font-size: 150px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 35px;
+            padding: 35px;
+            text-align: center;
+        }
+
+        .home-features {
+            padding: 65px 8%;
+            text-align: center;
+        }
+
+        .home-features h2 {
+            font-size: 30px;
+            color: #124c83;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 35px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px 22px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(20, 70, 140, 0.10);
+        }
+
+        .feature-card span {
+            font-size: 42px;
+        }
+
+        .feature-card h3 {
+            color: #12599a;
+            margin: 15px 0 10px;
+        }
+
+        .quick-links {
+            padding: 45px 8%;
+            text-align: center;
+            background: #eaf3ff;
+        }
+
+        .quick-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 13px 22px;
+            background: #1266a8;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        @media(max-width: 750px) {
+            .home-hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .home-buttons {
+                justify-content: center;
+            }
+
+            .energy-illustration {
+                font-size: 90px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">⚡ SmartBill</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="prediction.html">Prediction</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="history.html">History</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <section class="home-hero">
+
+        <div class="home-content">
+            <p class="tagline">SMART ENERGY MANAGEMENT</p>
+
+            <h1>Smart Electricity<br>Bill Prediction System</h1>
+
+            <p>
+                Take control of your electricity expenses.
+                Monitor your energy usage, estimate your monthly
+                bill and explore your consumption history in one place.
+            </p>
+
+            <div class="home-buttons">
+                <a href="prediction.html" class="home-btn">
+                    Predict Your Bill →
+                </a>
+
+                <a href="dashboard.html" class="home-btn secondary">
+                    Explore Dashboard
+                </a>
+            </div>
+        </div>
+
+        <div class="energy-illustration">
+            ⚡
+        </div>
+
+    </section>
+
+    <section class="home-features">
+
+        <h2>Everything You Need in One Place</h2>
+
+        <p>Simple tools to understand your electricity expenses.</p>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <span>⚡</span>
+                <h3>Bill Prediction</h3>
+                <p>Enter your electricity units and get a sample estimated bill.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>📊</span>
+                <h3>Usage Analytics</h3>
+                <p>Explore monthly electricity consumption through charts.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>📋</span>
+                <h3>Prediction History</h3>
+                <p>View your previously saved bill estimates.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="quick-links">
+
+        <h2>Explore SmartBill</h2>
+
+        <p>Choose a section to get started.</p>
+
+        <a href="dashboard.html">Dashboard</a>
+        <a href="prediction.html">Calculate Bill</a>
+        <a href="analytics.html">View Analytics</a>
+        <a href="history.html">View History</a>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Smart Electricity Bill Prediction System</p>
+        <p>Designed for educational purposes</p>
+    </footer>
+
+</body>
+
+</html>

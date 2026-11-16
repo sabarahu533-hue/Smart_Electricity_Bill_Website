@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analytics | SmartBill</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        .analytics {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .chart-box {
+            width: 90%;
+            max-width: 900px;
+            height: 420px;
+            margin: 30px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(20, 70, 140, 0.12);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">⚡ SmartBill</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="prediction.html">Prediction</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="history.html">History</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <section class="analytics">
+
+        <h2>Electricity Usage Analytics</h2>
+
+        <p class="section-text">
+            Monthly Electricity Consumption Overview
+        </p>
+
+        <div class="chart-box">
+            <canvas id="analyticsChart"></canvas>
+        </div>
+
+        <p id="chartMessage"></p>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Smart Electricity Bill Prediction System</p>
+        <p>Designed for educational purposes</p>
+    </footer>
+
+    <script>
+
+        const savedPredictions = JSON.parse(
+            localStorage.getItem("billHistory") || "[]"
+        );
+
+        // All 12 months
+        const monthNames = [
+            "January", "February", "March",
+            "April", "May", "June",
+            "July", "August", "September",
+            "October", "November", "December"
+        ];
+
+        // Start with zero units for every month
+        const monthlyUnits = new Array(12).fill(0);
+
+        // Add saved prediction units to their month
+        savedPredictions.forEach(item => {
+
+            const dateParts = item.date.split("/");
+            const month = Number(dateParts[0]) - 1;
+
+            if (month >= 0 && month < 12) {
+                monthlyUnits[month] += Number(item.units);
+            }
+
+        });
+
+        if (typeof Chart !== "undefined") {
+
+            document.getElementById("chartMessage").innerText =
+                "Showing your saved monthly predictions.";
+
+            new Chart(document.getElementById("analyticsChart"), {
+
+                type: "bar",
+
+                data: {
+                    labels: monthNames,
+
+                    datasets: [{
+                        label: "Electricity Units (kWh)",
+                        data: monthlyUnits,
+                        backgroundColor: "#2685e5",
+                        borderRadius: 8
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: "Electricity Units"
+                            }
+                        }
+                    }
+                }
+
+            });
+
+        } else {
+
+            document.getElementById("chartMessage").innerText =
+                "Please check your internet connection.";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
